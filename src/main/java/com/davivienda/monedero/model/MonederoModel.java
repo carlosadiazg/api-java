@@ -10,8 +10,6 @@ public class MonederoModel {
     private Date fechaCreacion;
     private Date fechaModificacion;
 
-    public MonederoModel(){}
-
     public MonederoModel(String idMonedero, String propietaro, float saldo, Date fechaCreacion, Date fechaModificacion) {
         this.idMonedero = idMonedero;
         this.propietaro = propietaro;

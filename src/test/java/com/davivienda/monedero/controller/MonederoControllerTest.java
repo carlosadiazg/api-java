@@ -49,8 +49,7 @@ public class MonederoControllerTest {
                 try {
                     Mockito.when(msMock.getMonedero("2")).thenReturn(monederoModel);
                     Mockito.when(msMock.getMonedero("3")).thenReturn(null);
-                }
-                catch(Exception e){
+                } catch (Exception e) {
                     Mockito.doThrow(e);
                 }
             }
@@ -61,21 +60,21 @@ public class MonederoControllerTest {
 
     @Test
     void getMonederoById_2() {
-        MonederoModel monederoModel;
+        MonederoModel monederoModel = null;
         MonederoController monederoController = new MonederoController();
 
         ReflectionTestUtils.setField(monederoController, "monederoService", msMock);
 
-        monederoModel = monederoController.getMonedero("2");
-
-        Assertions.assertEquals("2", monederoModel.getIdMonedero());
-        Assertions.assertEquals("Laura Lopez", monederoModel.getPropietaro());
-        Assertions.assertEquals(575000, monederoModel.getSaldo());
         try {
+            monederoModel = monederoController.getMonedero("2");
+
+            Assertions.assertEquals("2", monederoModel.getIdMonedero());
+            Assertions.assertEquals("Laura Lopez", monederoModel.getPropietaro());
+            Assertions.assertEquals(575000, monederoModel.getSaldo());
             Assertions.assertEquals(new SimpleDateFormat("yyyy-MM-d H:m:s").parse("2021-01-12 07:22:36"), monederoModel.getFechaCreacion());
             Assertions.assertEquals(new SimpleDateFormat("yyyy-MM-d H:m:s").parse("2021-09-14 13:22:36"), monederoModel.getFechaModificacion());
-        } catch (ParseException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            Mockito.doThrow(e);
         }
         Assertions.assertEquals(575000, monederoModel.getSaldo());
         Assertions.assertEquals(575000, monederoModel.getSaldo());
@@ -83,10 +82,16 @@ public class MonederoControllerTest {
 
     @Test
     void getMonederoById_3() {
-        MonederoModel monederoModel;
+        MonederoModel monederoModel = null;
         MonederoController monederoController = new MonederoController();
         ReflectionTestUtils.setField(monederoController, "monederoService", msMock);
-        monederoModel = monederoController.getMonedero("3");
+
+        try {
+            monederoModel = monederoController.getMonedero("3");
+
+        } catch (Exception e) {
+            Mockito.doThrow(e);
+        }
         Assertions.assertNull(monederoModel);
     }
 }

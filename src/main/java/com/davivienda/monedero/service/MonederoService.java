@@ -50,7 +50,7 @@ public class MonederoService {
         return monederoModel;
     }
 
-    private ResponseEntity<Map> searchMonedero(String idMonedero) {
+    private ResponseEntity<Map> searchMonedero(String idMonedero) throws Exception {
 
         ResponseEntity<Map> response;
 
@@ -67,7 +67,7 @@ public class MonederoService {
         try {
             response = restTemplate.exchange(endPoint + idMonedero, HttpMethod.GET, requestHeaders, Map.class);
         } catch (HttpClientErrorException e) {
-            throw e;
+            throw new Exception(e);
         }
 
         return response;
