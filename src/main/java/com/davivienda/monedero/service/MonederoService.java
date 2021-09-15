@@ -8,13 +8,13 @@ import java.util.Date;
 @Service
 public class MonederoService {
 
-    public MonederoModel getMonedero(String idMonedero){
+    public MonederoModel getMonedero(String idMonedero) {
         return searchMonedero(idMonedero);
     }
 
-    private MonederoModel searchMonedero(String idMonedero){
+    private MonederoModel searchMonedero(String idMonedero) {
 
-        MonederoModel monederoModel = new MonederoModel("1", "Carlos Díaz", 100000, new Date(), new Date());
+        MonederoModel monederoModel = new MonederoModel(idMonedero, "Carlos Díaz", 100000, new Date(), new Date());
         return monederoModel;
     }
 }
