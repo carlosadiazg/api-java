@@ -5,3 +5,7 @@ server:
 spring:
   application:
     name: monedero
+
+
+app:
+  endpoint: http://localhost:3000/api/monedero/

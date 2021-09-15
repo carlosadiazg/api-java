@@ -46,11 +46,15 @@ public class MonederoControllerTest {
 
                 monederoModel = new MonederoModel(idMonedero, propietario, saldo, fechaCreacion, fechaModificacion);
 
-                Mockito.when(msMock.getMonedero("2")).thenReturn(monederoModel);
-                Mockito.when(msMock.getMonedero("3")).thenReturn(null);
+                try {
+                    Mockito.when(msMock.getMonedero("2")).thenReturn(monederoModel);
+                    Mockito.when(msMock.getMonedero("3")).thenReturn(null);
+                }
+                catch(Exception e){
+                    Mockito.doThrow(e);
+                }
             }
         } catch (FileNotFoundException | JSONException | ParseException e) {
-            e.printStackTrace();
             Mockito.doThrow(e);
         }
     }

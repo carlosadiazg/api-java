@@ -17,7 +17,15 @@ public class MonederoController {
 
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public MonederoModel getMonedero(@RequestParam(name = "idMonedero") String idMonedero) {
-        return monederoService.getMonedero(idMonedero);
+
+        MonederoModel monederoModel = null;
+        try {
+            monederoModel = monederoService.getMonedero(idMonedero);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return monederoModel;
     }
 }
 /*
