@@ -6,8 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MonederoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MonederoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        System.out.println("main running");
+        SpringApplication.run(MonederoApplication.class, args);
+    }
 
 }

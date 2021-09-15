@@ -1,0 +1,7 @@
+server:
+  servlet:
+    context-path: /davivienda
+
+spring:
+  application:
+    name: monedero
