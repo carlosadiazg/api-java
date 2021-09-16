@@ -76,8 +76,6 @@ public class MonederoControllerTest {
         } catch (Exception e) {
             Mockito.doThrow(e);
         }
-        Assertions.assertEquals(575000, monederoModel.getSaldo());
-        Assertions.assertEquals(575000, monederoModel.getSaldo());
     }
 
     @Test
@@ -88,10 +86,9 @@ public class MonederoControllerTest {
 
         try {
             monederoModel = monederoController.getMonedero("3");
-
+            Assertions.assertNull(monederoModel);
         } catch (Exception e) {
             Mockito.doThrow(e);
         }
-        Assertions.assertNull(monederoModel);
     }
 }

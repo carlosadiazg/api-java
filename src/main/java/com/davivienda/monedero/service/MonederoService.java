@@ -54,7 +54,6 @@ public class MonederoService {
 
         ResponseEntity<Map> response;
 
-
         RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
         restTemplateBuilder.setConnectTimeout(Duration.ofMillis(10000)).setReadTimeout(Duration.ofMillis(10000));
         RestTemplate restTemplate = restTemplateBuilder.build();
